@@ -5,21 +5,27 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1vh;
     flex-direction: column;
-    background: yellowgreen;
-    background-image: url(trava.jpg);
+    gap: 2vh;
+    background: radial-gradient(circle at center, #f2ffe6, #c4e17f);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .naslov {
-    font-size: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #3b3b3b;
+    text-shadow: 2px 2px #d4ff9e;
     margin-bottom: 1rem;
 }
+
 
 .wrapper {
     display: flex;
@@ -28,15 +34,16 @@ body {
 }
 
 .container {
-    position: relative;  /* Da bodo absolutno pozicionirani elementi znotraj .container pravilno postavljeni */
+    position: relative;
     width: 40vw;
-    aspect-ratio: 1;     /* Naj bo kvadratno razmerje */
+    aspect-ratio: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(sir.png);
-    border: 0.5vh solid black;
+    background: url(sir.png) no-repeat center/cover, #fffde7;
+    border: 1vh solid #ffcc00;
     border-radius: 2vw;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
 #lab {
@@ -46,42 +53,50 @@ body {
 }
 
 .miska {
+    width: 16px;
+    height: 16px;
     position: absolute;
-    width: 12px;
-    height: 12px;
+    font-size: 1rem;
     transform: translate(-50%, -50%);
-    /* Na začetku skrita; bo prikazano v JS */
     display: none;
+    pointer-events: none;
 }
 
+
+@keyframes wiggle {
+    from { transform: translate(-50%, -50%) rotate(-5deg); }
+    to   { transform: translate(-50%, -50%) rotate(5deg); }
+}
+
+
 .gumbi {
-    width: 20vw;
-    height: 20vw;
+    width: 22vw;
+    min-height: 22vw;
     display: flex;
     flex-direction: column;
     gap: 2vh;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 1.5vw;
+    background: linear-gradient(145deg, #fff8dc, #f5deb3);
+    border-radius: 2vw;
+    box-shadow: inset 0 0 5px #d2b48c, 0 4px 8px rgba(0,0,0,0.3);
+    padding: 2vh;
     align-items: center;
     justify-content: center;
 }
 
 .gumbi button {
-    width: 100px;
-    height: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 2vh;
+    width: 80%;
+    height: 3rem;
+    font-size: 1rem;
     font-weight: bold;
-    background-color: wheat;
-    border: 0.1vh solid black;
+    background-color: #ffefb3;
+    border: none;
     border-radius: 2vh;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.2s ease-in-out;
 }
 
 .gumbi button:hover {
-    opacity: 85%;
-    transition: 0.3s;
+    background-color: #ffe066;
+    transform: scale(1.05);
     cursor: pointer;
 }
